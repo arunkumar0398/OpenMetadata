@@ -11,7 +11,10 @@
 """
 MotherDuck service spec
 """
-from metadata.ingestion.source.database.motherduck.lineage import MotherDuckLineageSource
+
+from metadata.ingestion.source.database.motherduck.lineage import (
+    MotherDuckLineageSource,
+)
 from metadata.ingestion.source.database.motherduck.metadata import MotherDuckSource
 from metadata.utils.service_spec.default import DefaultDatabaseSpec
 

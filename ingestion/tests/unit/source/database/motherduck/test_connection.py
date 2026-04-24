@@ -11,6 +11,7 @@
 """
 MotherDuck connection unit tests
 """
+
 from metadata.generated.schema.entity.services.connections.database.motherDuckConnection import (
     MotherDuckConnection,
 )
@@ -20,7 +21,9 @@ from metadata.ingestion.source.database.motherduck.connection import (
 )
 
 
-def _make_connection(token: str = "test-token-123", database: str = None) -> MotherDuckConnection:
+def _make_connection(
+    token: str = "test-token-123", database: str = None
+) -> MotherDuckConnection:
     return MotherDuckConnection(token=token, database=database)
 
 

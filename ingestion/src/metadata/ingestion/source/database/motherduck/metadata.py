@@ -11,6 +11,7 @@
 """
 MotherDuck source implementation.
 """
+
 from typing import Optional
 
 from metadata.generated.schema.entity.services.connections.database.motherDuckConnection import (
