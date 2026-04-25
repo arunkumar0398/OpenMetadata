@@ -50,6 +50,7 @@ VERSIONS = {
     "azure-identity": "azure-identity~=1.12",
     "databricks-sdk": "databricks-sdk~=0.20.0",
     "databricks-sql-connector": "databricks-sql-connector>=2.0",
+    "duckdb": "duckdb>=1.0",
     "duckdb-engine": "duckdb-engine>=0.13.0",
     "trino": "trino[sqlalchemy]",
     "spacy": "spacy<3.8",
@@ -126,7 +127,7 @@ DATA_DIFF = {
     # install all data diffs with "pip install collate-data-diff[all-dbs]"
     for driver in [
         "clickhouse",
-        # "duckdb", # Not supported by OpenMetadata
+        # "duckdb", # Raw DuckDB not supported; use "motherduck" plugin instead
         "mssql",
         "mysql",
         "oracle",
@@ -326,7 +327,7 @@ plugins: Dict[str, Set[str]] = {
         "python-liquid",
     },
     "mlflow": {"mlflow-skinny~=3.6.0"},
-    "motherduck": {VERSIONS["duckdb-engine"]},
+    "motherduck": {VERSIONS["duckdb"], VERSIONS["duckdb-engine"]},
     "mongo": {VERSIONS["mongo"], VERSIONS["pandas"], VERSIONS["numpy"]},
     "cassandra": {VERSIONS["cassandra"]},
     "couchbase": {"couchbase~=4.1"},

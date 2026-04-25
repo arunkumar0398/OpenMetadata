@@ -21,7 +21,7 @@ class MotherDuckType(Enum):
 
 
 class MotherDuckScheme(Enum):
-    duckdb_motherduck = 'duckdb+motherduck'
+    duckdb = 'duckdb'
 
 
 class MotherDuckConnection(BaseModel):
@@ -37,7 +37,7 @@ class MotherDuckConnection(BaseModel):
     scheme: Annotated[
         Optional[MotherDuckScheme],
         Field(
-            MotherDuckScheme.duckdb_motherduck,
+            MotherDuckScheme.duckdb,
             description='SQLAlchemy driver scheme options.',
             title='Connection Scheme',
         ),

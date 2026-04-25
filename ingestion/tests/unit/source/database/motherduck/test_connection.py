@@ -16,7 +16,7 @@ from metadata.generated.schema.entity.services.connections.database.motherDuckCo
     MotherDuckConnection,
 )
 from metadata.ingestion.source.database.motherduck.connection import (
-    _get_connect_args,
+    get_connect_args,
     get_connection_url,
 )
 
@@ -44,10 +44,10 @@ class TestGetConnectionUrl:
 class TestGetConnectArgs:
     def test_token_present(self):
         conn = _make_connection(token="my-service-token")
-        args = _get_connect_args(conn)
+        args = get_connect_args(conn)
         assert args["motherduck_token"] == "my-service-token"
 
     def test_only_motherduck_token_key(self):
         conn = _make_connection(token="abc")
-        args = _get_connect_args(conn)
+        args = get_connect_args(conn)
         assert set(args.keys()) == {"motherduck_token"}

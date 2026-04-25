@@ -34,7 +34,7 @@ class MotherDuckLineageSource(LineageSource):
         cls, config_dict, metadata: OpenMetadata, pipeline_name: Optional[str] = None
     ):
         config: WorkflowSource = WorkflowSource.model_validate(config_dict)
-        connection: MotherDuckConnection = config.serviceConnection.root.config
+        connection = config.serviceConnection.root.config
         if not isinstance(connection, MotherDuckConnection):
             raise InvalidSourceException(
                 f"Expected MotherDuckConnection, but got {connection}"

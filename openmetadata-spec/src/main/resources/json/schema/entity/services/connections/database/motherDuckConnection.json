@@ -15,8 +15,8 @@
     "MotherDuckScheme": {
       "description": "SQLAlchemy driver scheme options.",
       "type": "string",
-      "enum": ["duckdb+motherduck"],
-      "default": "duckdb+motherduck"
+      "enum": ["duckdb"],
+      "default": "duckdb"
     }
   },
   "properties": {
@@ -30,7 +30,7 @@
       "title": "Connection Scheme",
       "description": "SQLAlchemy driver scheme options.",
       "$ref": "#/definitions/MotherDuckScheme",
-      "default": "duckdb+motherduck"
+      "default": "duckdb"
     },
     "token": {
       "title": "MotherDuck Token",

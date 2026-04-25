@@ -33,10 +33,10 @@ from metadata.utils.constants import THREE_MIN
 
 def get_connection_url(connection: MotherDuckConnection) -> str:
     db = connection.database or ""
-    return f"duckdb:///md:{db}"
+    return f"{connection.scheme.value}:///md:{db}"
 
 
-def _get_connect_args(connection: MotherDuckConnection) -> dict:
+def get_connect_args(connection: MotherDuckConnection) -> dict:
     return {"motherduck_token": connection.token.get_secret_value()}
 
 
@@ -44,7 +44,7 @@ def get_connection(connection: MotherDuckConnection) -> Engine:
     return create_generic_db_connection(
         connection=connection,
         get_connection_url_fn=get_connection_url,
-        get_connection_args_fn=_get_connect_args,
+        get_connection_args_fn=get_connect_args,
     )
 
 
